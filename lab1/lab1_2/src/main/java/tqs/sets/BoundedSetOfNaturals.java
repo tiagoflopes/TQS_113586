@@ -13,30 +13,8 @@ import java.util.Objects;
  */
 public class BoundedSetOfNaturals implements Iterable<Integer> {
 
-    private ArrayList<Integer> collection;
-    private int maxSize;
-
-    public void add(int element) {
-        if (this.collection.size() >= maxSize) {
-            throw new IllegalArgumentException("bounded set is full. no more elements allowed.");
-        }
-        if (this.collection.contains(element)) {
-            throw new IllegalArgumentException("duplicate value: " + element);
-        }
-
-        if (element <= 0) {
-            throw new IllegalArgumentException("Illegal argument: not a natural number");
-        }
-
-        collection.add(element);
-
-    }
-
-    public void add(int[] numbers) {
-        for (int number : numbers) {
-            this.add(number);
-        }
-    }
+    private final ArrayList<Integer> collection;
+    private final int maxSize;
 
     public BoundedSetOfNaturals(int maxSize) {
         this.maxSize = maxSize;
@@ -58,14 +36,39 @@ public class BoundedSetOfNaturals implements Iterable<Integer> {
         return newSet;
     }
 
+    public void add(int element) {
+        if (this.collection.size() >= maxSize) {
+            throw new IllegalArgumentException("bounded set is full. no more elements allowed.");
+        }
+
+        if (this.collection.contains(element)) {
+            throw new IllegalArgumentException("duplicate value: " + element);
+        }
+
+        if (element <= 0) {
+            throw new IllegalArgumentException("Illegal argument: not a natural number");
+        }
+
+        collection.add(element);
+    }
+
+    public void add(int[] numbers) {
+        for (int number : numbers) {
+            this.add(number);
+        }
+    }
 
     public int size() {
         return this.collection.size();
     }
 
-
     //TODO implement the intersect logic
     public boolean intersects(BoundedSetOfNaturals subset) {
+        for (Integer i : collection) {
+            if (subset.contains(i)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -77,7 +80,6 @@ public class BoundedSetOfNaturals implements Iterable<Integer> {
     public Iterator<Integer> iterator() {
         return collection.iterator();
     }
-
 
     @Override
     public int hashCode() {
@@ -101,6 +103,5 @@ public class BoundedSetOfNaturals implements Iterable<Integer> {
         final BoundedSetOfNaturals other = (BoundedSetOfNaturals) obj;
         return Objects.equals(this.collection, other.collection);
     }
-
 
 }

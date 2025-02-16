@@ -13,6 +13,7 @@ import tqs.sets.BoundedSetOfNaturals;
  * @author ico0
  */
 class BoundedSetOfNaturalsTest {
+
     private BoundedSetOfNaturals setA;
     private BoundedSetOfNaturals setB;
     private BoundedSetOfNaturals setC;
@@ -30,20 +31,15 @@ class BoundedSetOfNaturalsTest {
         setA = setB = setC = null;
     }
 
-    @Disabled("TODO revise test logic")
     @Test
     public void testAddElement() {
-
         setA.add(99);
         assertTrue(setA.contains(99), "add: added element not found in set.");
         assertEquals(1, setA.size());
 
-        setB.add(11);
-        assertTrue(setB.contains(11), "add: added element not found in set.");
-        assertEquals(7, setB.size(), "add: elements count not as expected.");
+        assertThrowsExactly(IllegalArgumentException.class, () -> setB.add(11));
     }
 
-    @Disabled("TODO revise to test the construction from invalid arrays")
     @Test
     public void testAddFromBadArray() {
         int[] elems = new int[]{10, -20, -30};
@@ -52,5 +48,10 @@ class BoundedSetOfNaturalsTest {
         assertThrows(IllegalArgumentException.class, () -> setA.add(elems));
     }
 
+    @Test
+    public void testIntersect() {
+        assertTrue(setB.intersects(setC));
+        assertFalse(setA.intersects(setB));
+    }
 
 }

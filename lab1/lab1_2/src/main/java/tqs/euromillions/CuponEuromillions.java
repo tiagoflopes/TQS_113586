@@ -45,4 +45,5 @@ public class CuponEuromillions implements Iterable<Dip> {
     public Iterator<Dip> iterator() {
         return dipsCollection.iterator();
     }
+
 }

@@ -38,7 +38,6 @@ public class EuromillionsDraw {
      * are also present in the draw
      */
     public ArrayList<Dip> findMatchesFor(CuponEuromillions playCoupon) {
-
         ArrayList<Dip> results = new ArrayList<Dip>();
         Dip workingDip;
 
@@ -62,4 +61,5 @@ public class EuromillionsDraw {
     public Dip getDrawResults() {
         return drawResults;
     }
+
 }
