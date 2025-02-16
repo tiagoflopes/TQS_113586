@@ -1,5 +1,6 @@
 package tqs;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,11 @@ class TqsStackTest {
     @BeforeEach
     void setup() {
         myStack = new TqsStack<>();
+    }
+
+    @AfterEach
+    void tearDown() {
+        myStack = null;
     }
 
     @Test
