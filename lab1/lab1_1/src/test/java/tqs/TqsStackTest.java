@@ -36,6 +36,8 @@ class TqsStackTest {
         assertThrowsExactly(NoSuchElementException.class, myStack::pop);
 
         myStack.push(0);
+        myStack.push(1);
+        assertEquals(1, myStack.pop());
         assertEquals(0, myStack.pop());
     }
 
@@ -46,6 +48,7 @@ class TqsStackTest {
         myStack.push(0);
         myStack.push(1);
         myStack.push(2);
+        assertThrowsExactly(IllegalStateException.class, () -> myStack.popTopN(4));
         assertEquals(1, myStack.popTopN(2));
     }
 

@@ -38,6 +38,10 @@ public class TqsStack<T> {
             throw new NoSuchElementException();
         }
 
+        if (n > stack.size()) {
+            throw new IllegalStateException();
+        }
+
         T top = null;
         for (int i = 0; i < n; i++) {
             top = stack.removeFirst();
