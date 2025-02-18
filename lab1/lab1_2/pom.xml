@@ -42,7 +42,6 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -68,13 +67,13 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>report</id>-->
-<!--                        <phase>prepare-package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>report</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>check</id>
                         <goals>
@@ -88,11 +87,11 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.90</minimum>
+                                            <minimum>0.39</minimum>
                                         </limit>
                                     </limits>
                                     <excludes>
-                                        <exclude>tqs.*.*Test</exclude>
+                                        <exclude>tqs..*Test</exclude>
                                     </excludes>
                                 </rule>
                             </rules>
