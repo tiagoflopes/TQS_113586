@@ -91,7 +91,7 @@
                                         </limit>
                                     </limits>
                                     <excludes>
-                                        <exclude>tqs..*Test</exclude>
+                                        <exclude>tqs.DemoMain</exclude>
                                     </excludes>
                                 </rule>
                             </rules>
