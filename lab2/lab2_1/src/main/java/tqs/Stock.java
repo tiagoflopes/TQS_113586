@@ -26,4 +26,23 @@ public class Stock {
         this.quantity = quantity;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Stock stock = (Stock) obj;
+
+        if (!stock.getLabel().equals(this.getLabel())) {
+            return false;
+        }
+
+        if (!stock.getQuantity().equals(this.getQuantity())) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
