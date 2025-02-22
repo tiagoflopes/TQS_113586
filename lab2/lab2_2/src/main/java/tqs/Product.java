@@ -70,4 +70,23 @@ public class Product {
         this.category = category;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Product product = (Product) obj;
+
+        if (!product.getId().equals(this.getId())) {
+            return false;
+        }
+
+        if (!product.getTitle().equals(this.getTitle())) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
