@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,7 +37,7 @@ class ProductFinderServiceTest {
     }
 
     @Test
-    void findProductDetails() {
+    void findProductDetails() throws IOException {
         when(httpClient.doHttpGet(PRODUCTS_API + 3)).thenReturn("{" +
                 "\"id\":3," +
                 "\"title\":\"Mens Cotton Jacket\"" +
@@ -50,7 +51,7 @@ class ProductFinderServiceTest {
     }
 
     @Test
-    void findNotFoundProduct() {
+    void findNotFoundProduct() throws IOException {
         when(httpClient.doHttpGet(PRODUCTS_API + 300)).thenReturn("Error found in id.");
 
         Optional<Product> product = productFinder.findProductDetails(300);
