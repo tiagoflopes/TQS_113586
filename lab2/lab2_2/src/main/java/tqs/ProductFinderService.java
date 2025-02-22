@@ -1,6 +1,8 @@
 package tqs;
 
 import com.google.gson.Gson;
+
+import java.io.IOException;
 import java.util.Optional;
 
 public class ProductFinderService {
@@ -12,7 +14,7 @@ public class ProductFinderService {
         this.httpClient = httpClient;
     }
 
-    public Optional<Product> findProductDetails(int id) {
+    public Optional<Product> findProductDetails(int id) throws IOException {
         String data = httpClient.doHttpGet(API_PRODUCTS + id);
         if (data.equals("Error found in id.")) {
             return Optional.empty();
