@@ -35,7 +35,6 @@ public class EmployeeRestController {
         return new ResponseEntity<>(saved, status);
     }
 
-
     @GetMapping(path="/employees" )
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();

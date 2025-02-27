@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import tqsdemo.employeemngr.data.Employee;
 import tqsdemo.employeemngr.data.EmployeeRepository;
 
-
 import java.util.List;
 
 @Service
@@ -41,4 +40,5 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
+
 }

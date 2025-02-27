@@ -49,7 +49,6 @@ class A_EmployeeRepositoryTest {
                 extracting(Employee::getName).isEqualTo(persistedAlex.getName());
     }
 
-
     @Test
     void whenInvalidEmployeeName_thenReturnNull() {
         Employee fromDb = employeeRepository.findByName("Does Not Exist");
@@ -87,10 +86,9 @@ class A_EmployeeRepositoryTest {
         assertThat(allEmployees).hasSize(3).extracting(Employee::getName).containsOnly(alex.getName(), ron.getName(), bob.getName());
     }
 
-
     @DisplayName("Should find employees whose email ends with a specific domain")
     @Test
-    void testFindEmplyeedByOrganizationDomain() {
+    void testFindEmployeeByOrganizationDomain() {
         // Given
         entityManager.persist(new Employee("alex", "alex@deti.com"));
         entityManager.persist(new Employee("ron", "ron@ua.pt"));
@@ -98,7 +96,7 @@ class A_EmployeeRepositoryTest {
         entityManager.flush();
 
         // When
-        List<Employee> results = employeeRepository.findEmplyeedByOrganizationDomain("ua.pt");
+        List<Employee> results = employeeRepository.findEmployeeByOrganizationDomain("ua.pt");
 
         // Then
         assertThat(results)

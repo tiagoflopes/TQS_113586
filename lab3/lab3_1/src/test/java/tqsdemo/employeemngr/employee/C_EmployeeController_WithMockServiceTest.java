@@ -1,4 +1,5 @@
 package tqsdemo.employeemngr.employee;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,6 @@ class C_EmployeeController_WithMockServiceTest {
     @MockBean
     private EmployeeService service;
 
-
     @Test
     void whenPostEmployee_thenCreateEmployee( ) throws Exception {
         Employee alex = new Employee("alex", "alex@deti.com");
@@ -51,7 +51,6 @@ class C_EmployeeController_WithMockServiceTest {
                 .andExpect(jsonPath("$.name", is("alex")));
 
         verify(service, times(1)).save(Mockito.any());
-
     }
 
     @Test
@@ -74,4 +73,5 @@ class C_EmployeeController_WithMockServiceTest {
 
         verify(service, times(1)).getAllEmployees();
     }
+
 }

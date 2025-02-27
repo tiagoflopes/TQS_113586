@@ -22,7 +22,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase
-
 // switch AutoConfigureTestDatabase with TestPropertySource to use a real database
 // @TestPropertySource( locations = "application-integrationtest.properties")
 class E_EmployeeRestControllerTemplateIT {
@@ -43,9 +42,8 @@ class E_EmployeeRestControllerTemplateIT {
         repository.deleteAll();
     }
 
-
     @Test
-     void whenValidInput_thenCreateEmployee() {
+    void whenValidInput_thenCreateEmployee() {
         Employee bob = new Employee("bob", "bob@deti.com");
         restTemplate.postForEntity("/api/employees", bob, Employee.class);
 
@@ -54,7 +52,7 @@ class E_EmployeeRestControllerTemplateIT {
     }
 
     @Test
-     void givenEmployees_whenGetEmployees_thenStatus200()  {
+    void givenEmployees_whenGetEmployees_thenStatus200()  {
         createTestEmployee("bob", "bob@deti.com");
         createTestEmployee("alex", "alex@deti.com");
 
@@ -65,9 +63,7 @@ class E_EmployeeRestControllerTemplateIT {
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).extracting(Employee::getName).containsExactly("bob", "alex");
-
     }
-
 
     private void createTestEmployee(String name, String email) {
         Employee emp = new Employee(name, email);

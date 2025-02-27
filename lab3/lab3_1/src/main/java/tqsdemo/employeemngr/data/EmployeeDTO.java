@@ -12,11 +12,13 @@ public class EmployeeDTO {
     public static EmployeeDTO fromEmployeeEntity(Employee employee){
         return new EmployeeDTO(employee.getName(), employee.getEmail(), employee.getId());
     }
+
     public Employee toEmployeeEntity(){
         return new Employee(getName(), getEmail(), getId());
     }
 
     public EmployeeDTO() {
+
     }
 
     public EmployeeDTO(String name, String email, Long id) {

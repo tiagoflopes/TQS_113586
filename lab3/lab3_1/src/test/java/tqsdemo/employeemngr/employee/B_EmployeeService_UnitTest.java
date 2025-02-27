@@ -59,7 +59,7 @@ class B_EmployeeService_UnitTest {
     }
 
     @Test
-     void whenSearchValidName_thenEmployeeShouldBeFound() {
+    void whenSearchValidName_thenEmployeeShouldBeFound() {
         String name = "alex";
         Employee found = employeeService.getEmployeeByName(name);
 
@@ -67,7 +67,7 @@ class B_EmployeeService_UnitTest {
     }
 
     @Test
-     void whenSearchInvalidName_thenEmployeeShouldNotBeFound() {
+    void whenSearchInvalidName_thenEmployeeShouldNotBeFound() {
         Employee fromDb = employeeService.getEmployeeByName("wrong_name");
         assertThat(fromDb).isNull();
 
@@ -75,7 +75,7 @@ class B_EmployeeService_UnitTest {
     }
 
     @Test
-     void whenValidName_thenEmployeeShouldExist() {
+    void whenValidName_thenEmployeeShouldExist() {
         boolean doesEmployeeExist = employeeService.exists("john");
         assertThat(doesEmployeeExist).isTrue();
 
@@ -83,14 +83,14 @@ class B_EmployeeService_UnitTest {
     }
 
     @Test
-     void whenNonExistingName_thenEmployeeShouldNotExist() {
+    void whenNonExistingName_thenEmployeeShouldNotExist() {
         boolean doesEmployeeExist = employeeService.exists("some_name");
         assertThat(doesEmployeeExist).isFalse();
         verifyFindByNameIsCalledOnce("some_name");
     }
 
     @Test
-     void whenValidId_thenEmployeeShouldBeFound() {
+    void whenValidId_thenEmployeeShouldBeFound() {
         Employee fromDb = employeeService.getEmployeeById(111L);
         assertThat(fromDb.getName()).isEqualTo("john");
 
@@ -98,14 +98,14 @@ class B_EmployeeService_UnitTest {
     }
 
     @Test
-     void whenInValidId_thenEmployeeShouldNotBeFound() {
+    void whenInValidId_thenEmployeeShouldNotBeFound() {
         Employee fromDb = employeeService.getEmployeeById(-99L);
         verifyFindByIdIsCalledOnce();
         assertThat(fromDb).isNull();
     }
 
     @Test
-     void given3Employees_whengetAll_thenReturn3Records() {
+    void given3Employees_whengetAll_thenReturn3Records() {
         Employee alex = new Employee("alex", "alex@deti.ua.pt");
         Employee john = new Employee("john", "john@deti.ua.pt");
         Employee bob = new Employee("bob", "bob@deti.ua.pt");
@@ -126,4 +126,5 @@ class B_EmployeeService_UnitTest {
     private void verifyFindAllEmployeesIsCalledOnce() {
         Mockito.verify(employeeRepository, VerificationModeFactory.times(1)).findAll();
     }
+
 }
