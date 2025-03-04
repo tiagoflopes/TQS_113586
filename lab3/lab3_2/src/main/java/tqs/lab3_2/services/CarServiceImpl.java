@@ -29,4 +29,14 @@ public class CarServiceImpl implements CarService {
         return Optional.of(carRepository.findCarByCarId(carId));
     }
 
+    @Override
+    public Optional<Car> findSuitableReplacement(Long carId) {
+        Car car = carRepository.findCarByCarId(carId);
+        if (car == null) {
+            throw new IllegalArgumentException();
+        }
+
+        return carRepository.findSuitableReplacements(car.getCarId(), car.getMaker()).stream().findFirst();
+    }
+
 }

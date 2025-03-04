@@ -24,4 +24,23 @@ public class Car {
 
     private String model;
 
+    public Car(String maker, String model) {
+        this.maker = maker;
+        this.model = model;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Car car = (Car) obj;
+        return car.maker.equals(this.maker) && car.model.equals(this.model);
+    }
+
 }

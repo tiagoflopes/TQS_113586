@@ -10,5 +10,6 @@ public interface CarService {
     Car save(Car car);
     List<Car> getAllCars();
     Optional<Car> getCarDetails(Long carId);
+    Optional<Car> findSuitableReplacement(Long carId);
 
 }

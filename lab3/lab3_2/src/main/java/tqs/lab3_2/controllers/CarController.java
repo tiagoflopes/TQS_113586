@@ -1,6 +1,7 @@
 package tqs.lab3_2.controllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tqs.lab3_2.entities.Car;
@@ -18,7 +19,7 @@ public class CarController {
 
     @PostMapping("/cars")
     public ResponseEntity<Car> createCar(Car car) {
-        return ResponseEntity.ok(carService.save(car));
+        return new ResponseEntity<>(carService.save(car), HttpStatus.CREATED);
     }
 
     @GetMapping("/cars")
@@ -26,8 +27,8 @@ public class CarController {
         return carService.getAllCars();
     }
 
-    @GetMapping("/car")
-    public ResponseEntity<Car> getCarById(@RequestParam Long carId) {
+    @GetMapping("/car/{carId}")
+    public ResponseEntity<Car> getCarById(@PathVariable Long carId) {
         Optional<Car> car = carService.getCarDetails(carId);
         if (car.isEmpty()) {
             return ResponseEntity.notFound().build();
