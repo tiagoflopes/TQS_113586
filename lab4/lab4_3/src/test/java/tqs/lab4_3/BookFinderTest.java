@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import io.github.bonigarcia.seljup.SeleniumJupiter;
 
 @ExtendWith(SeleniumJupiter.class)
-class HelloWorldFirefoxSelJupTest {
+class BookFinderTest {
 
     static final Logger log = getLogger(lookup().lookupClass());
 
@@ -30,6 +30,7 @@ class HelloWorldFirefoxSelJupTest {
         searchBar.sendKeys("Harry Potter");
         WebElement submitButton = driver.findElement(By.xpath("/html/body/div/div[1]/div/div/div[1]/div[1]/div/button"));
         submitButton.click();
+
         assertThat(driver.getCurrentUrl()).isEqualTo("https://cover-bookstore.onrender.com/search?query=Harry%20Potter");
 
         WebElement bookTitle = driver.findElement(By.className("SearchList_bookTitle__1wo4a"));
