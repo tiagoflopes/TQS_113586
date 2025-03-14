@@ -14,7 +14,8 @@ public class Calculator {
     public void push(Object arg) {
         if (OPS.contains(arg)) {
             Number y = stack.removeLast();
-            Number x = stack.isEmpty() ? 0 : stack.removeLast();
+            boolean oneVal = stack.isEmpty();
+            Number x = oneVal ? 0 : stack.removeLast();
             Double val = null;
             if (arg.equals("-")) {
                 val = x.doubleValue() - y.doubleValue();
@@ -23,6 +24,9 @@ public class Calculator {
             } else if (arg.equals("*")) {
                 val = x.doubleValue() * y.doubleValue();
             } else if (arg.equals("/")) {
+                if (y.doubleValue() == 0 || oneVal) {
+                    throw new ArithmeticException();
+                }
                 val = x.doubleValue() / y.doubleValue();
             }
             push(val);

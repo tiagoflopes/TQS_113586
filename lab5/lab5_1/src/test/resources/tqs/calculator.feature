@@ -19,6 +19,10 @@ Feature: Basic Arithmetic
     When I divide 6 by 3
     Then the result is 2
 
+  Scenario: Error
+    When I divide 6
+    Then the result is error
+
   Scenario Outline: Several additions
     When I add <a> and <b>
     Then the result is <c>
