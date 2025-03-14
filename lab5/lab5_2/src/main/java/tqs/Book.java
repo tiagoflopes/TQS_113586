@@ -1,14 +1,14 @@
 package tqs;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Book {
 
     private final String author;
     private final String title;
-    private final LocalDateTime published;
+    private final Date published;
 
-    public Book(String author, String title, LocalDateTime published) {
+    public Book(String title, String author, Date published) {
         this.author = author;
         this.title = title;
         this.published = published;
@@ -22,7 +22,7 @@ public class Book {
         return title;
     }
 
-    public LocalDateTime getPublished() {
+    public Date getPublished() {
         return published;
     }
 
