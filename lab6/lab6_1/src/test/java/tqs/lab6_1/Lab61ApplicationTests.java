@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Import(TestcontainersConfiguration.class)
 @Testcontainers
-@TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
 class Lab61ApplicationTests {
 
