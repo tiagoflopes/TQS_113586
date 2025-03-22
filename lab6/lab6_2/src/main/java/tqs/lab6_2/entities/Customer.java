@@ -1,4 +1,4 @@
-package tqs.lab6_1.entities;
+package tqs.lab6_2.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
