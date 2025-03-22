@@ -36,9 +36,16 @@ public class RestControllerTest {
         when(carService.save(Mockito.any())).thenReturn(newCar);
 
         RestAssuredMockMvc
-                .given().mockMvc(mvc).contentType(MediaType.APPLICATION_JSON).body(JsonUtils.toJson(newCar))
-                .when().post("/api/cars")
-                .then().assertThat().status(HttpStatus.CREATED).body("model", equalTo("M3"));
+        .given()
+                .mockMvc(mvc)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(JsonUtils.toJson(newCar))
+        .when()
+                .post("/api/cars")
+        .then()
+                .assertThat()
+                .status(HttpStatus.CREATED)
+                .body("model", equalTo("M3"));
 
         verify(carService, times(1)).save(Mockito.any());
     }
@@ -52,14 +59,17 @@ public class RestControllerTest {
         when(carService.getAllCars()).thenReturn(allCars);
 
         RestAssuredMockMvc
-                .given().mockMvc(mvc).contentType(MediaType.APPLICATION_JSON)
-                .when().get("/api/cars")
-                .then()
-                    .assertThat()
-                    .status(HttpStatus.OK)
-                    .body("$.size()", equalTo(2))
-                    .body("[0].model", equalTo(car1.getModel()))
-                    .body("[1].model", equalTo(car2.getModel()));
+        .given()
+                .mockMvc(mvc)
+                .contentType(MediaType.APPLICATION_JSON)
+        .when()
+                .get("/api/cars")
+        .then()
+                .assertThat()
+                .status(HttpStatus.OK)
+                .body("$.size()", equalTo(2))
+                .body("[0].model", equalTo(car1.getModel()))
+                .body("[1].model", equalTo(car2.getModel()));
 
         verify(carService, times(1)).getAllCars();
     }
@@ -71,9 +81,12 @@ public class RestControllerTest {
         when(carService.getCarDetails(1234L)).thenReturn(Optional.of(newCar));
 
         RestAssuredMockMvc
-                .given().mockMvc(mvc).contentType(MediaType.APPLICATION_JSON)
-                .when().get("/api/car/1234")
-                .then()
+        .given()
+                .mockMvc(mvc)
+                .contentType(MediaType.APPLICATION_JSON)
+        .when()
+                .get("/api/car/1234")
+        .then()
                 .assertThat()
                 .status(HttpStatus.OK)
                 .body("model", equalTo(newCar.getModel()));

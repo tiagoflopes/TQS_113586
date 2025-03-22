@@ -72,10 +72,4 @@ class Lab62ApplicationTests {
         assertEquals(0, customerRepository.count());
     }
 
-    @Test
-    @Order(5)
-    void countThem() {
-        System.out.println(customerRepository.count());
-    }
-
 }
