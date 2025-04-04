@@ -1,11 +1,11 @@
-package tqs.lab3_2.controllers;
+package tqs.lab8_2.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tqs.lab3_2.entities.Car;
-import tqs.lab3_2.services.CarService;
+import tqs.lab8_2.entities.Car;
+import tqs.lab8_2.services.CarService;
 
 import java.util.List;
 import java.util.Optional;

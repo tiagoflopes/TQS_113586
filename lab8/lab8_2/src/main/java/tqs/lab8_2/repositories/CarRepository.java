@@ -1,10 +1,10 @@
-package tqs.lab3_2.repositories;
+package tqs.lab8_2.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import tqs.lab3_2.entities.Car;
+import tqs.lab8_2.entities.Car;
 
 import java.util.List;
 

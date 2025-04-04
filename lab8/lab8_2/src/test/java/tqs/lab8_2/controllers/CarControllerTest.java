@@ -1,4 +1,4 @@
-package tqs.lab3_2.controllers;
+package tqs.lab8_2.controllers;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -7,9 +7,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import tqs.lab3_2.entities.Car;
-import tqs.lab3_2.services.CarService;
-import tqs.lab3_2.JsonUtils;
+import tqs.lab8_2.entities.Car;
+import tqs.lab8_2.services.CarService;
+import tqs.lab8_2.JsonUtils;
 
 import java.util.List;
 import java.util.Optional;

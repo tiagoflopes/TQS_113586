@@ -1,10 +1,10 @@
-package tqs.lab3_2.repositories;
+package tqs.lab8_2.repositories;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import tqs.lab3_2.entities.Car;
+import tqs.lab8_2.entities.Car;
 
 import java.util.List;
 

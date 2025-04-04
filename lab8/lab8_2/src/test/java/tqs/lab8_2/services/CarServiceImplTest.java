@@ -1,4 +1,4 @@
-package tqs.lab3_2.services;
+package tqs.lab8_2.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,8 +9,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import tqs.lab3_2.entities.Car;
-import tqs.lab3_2.repositories.CarRepository;
+import tqs.lab8_2.entities.Car;
+import tqs.lab8_2.repositories.CarRepository;
 
 import java.util.List;
 

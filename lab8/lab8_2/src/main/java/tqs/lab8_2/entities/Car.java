@@ -1,4 +1,4 @@
-package tqs.lab3_2.entities;
+package tqs.lab8_2.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

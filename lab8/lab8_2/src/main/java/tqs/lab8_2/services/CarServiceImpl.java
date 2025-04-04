@@ -1,9 +1,9 @@
-package tqs.lab3_2.services;
+package tqs.lab8_2.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tqs.lab3_2.entities.Car;
-import tqs.lab3_2.repositories.CarRepository;
+import tqs.lab8_2.entities.Car;
+import tqs.lab8_2.repositories.CarRepository;
 
 import java.util.List;
 import java.util.Optional;

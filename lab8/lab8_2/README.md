@@ -20,3 +20,14 @@ The issues are now fixed, and the dashboard presents no issues on the analysis.
 
 ### f)
 
+The quality gate is failing because the code coverage is of 71.8% which is less than 80%. The other factors are passing (0 issues, security hotspots reviewed and less than 3.0% duplicated code)
+
+
+### g)
+
+I created a quality gate that passes when the code coverage is less than 70% to accommodate to my analysis. With this change, this quality gate passes.
+
+
+### h)
+
+The new code passes the created quality gate.

@@ -1,6 +1,6 @@
-package tqs.lab3_2.services;
+package tqs.lab8_2.services;
 
-import tqs.lab3_2.entities.Car;
+import tqs.lab8_2.entities.Car;
 
 import java.util.List;
 import java.util.Optional;
